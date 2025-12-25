@@ -1,0 +1,85 @@
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.title {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.volatilitySection {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.icon {
+    margin-right: var(--spacing-xs);
+}
+
+.iconHigh {
+    color: var(--signal-bearish);
+}
+
+.iconModerate {
+    color: var(--signal-neutral);
+}
+
+.iconLow {
+    color: var(--signal-bullish);
+}
+
+.label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: 2px;
+}
+
+.value {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+}
+
+.textHigh {
+    color: var(--signal-bearish);
+}
+
+.textModerate {
+    color: var(--signal-neutral);
+}
+
+.textLow {
+    color: var(--signal-bullish);
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--border-color);
+    width: 100%;
+}
+
+.riskScoreSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.riskValue {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+}

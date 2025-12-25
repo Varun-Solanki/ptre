@@ -1,0 +1,111 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    /* Account for header/footer */
+    text-align: center;
+    gap: var(--spacing-xl);
+}
+
+.hero {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logoIcon {
+    color: var(--signal-bullish);
+    /* Optional glow effect */
+    filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.4));
+}
+
+.title {
+    font-size: 4rem;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #E5E7EB 0%, #9CA3AF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: -1rem;
+}
+
+.subtitle {
+    font-size: var(--font-size-2xl);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.description {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.ctaButton {
+    background-color: var(--text-primary);
+    color: var(--bg-app);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: 999px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: var(--spacing-md);
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+
+.featureCard {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: left;
+}
+
+.featureCard h3 {
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.featureCard p {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}

@@ -1,0 +1,97 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: var(--spacing-xl);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-lg);
+}
+
+.title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+}
+
+.section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.section h2 {
+    font-size: var(--font-size-xl);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    border-left: 4px solid var(--signal-bullish);
+    padding-left: var(--spacing-md);
+}
+
+.section p {
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-md);
+}
+
+.formulaBox {
+    background-color: var(--bg-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border-color);
+    font-family: 'Courier New', monospace;
+    font-size: var(--font-size-lg);
+    text-align: center;
+    margin: var(--spacing-md) 0;
+    color: var(--text-primary);
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: var(--spacing-xl) 0;
+}
+
+.tableContainer {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-md);
+}
+
+.table th {
+    text-align: left;
+    padding: var(--spacing-md);
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+}
+
+.table td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.rowBullish td {
+    color: var(--signal-bullish);
+}
+
+.rowBearish td {
+    color: var(--signal-bearish);
+}
+
+.rowNeutral td {
+    color: var(--signal-neutral);
+}

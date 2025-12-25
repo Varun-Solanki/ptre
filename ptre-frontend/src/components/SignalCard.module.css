@@ -1,0 +1,111 @@
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.title {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.signalContainer {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.signalText {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+}
+
+.bullish {
+    color: #22c55e;
+}
+
+.bearish {
+    color: #ef4444;
+}
+
+.neutral {
+    color: #facc15;
+}
+
+.iconBullish {
+    color: var(--signal-bullish);
+}
+
+.iconBearish {
+    color: var(--signal-bearish);
+}
+
+.iconNeutral {
+    color: var(--signal-neutral);
+}
+
+.confidenceSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.confidenceLabel {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.progressBarBackground {
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progressBarFill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease-out;
+}
+
+.labelWithIcon {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.infoIcon {
+    color: var(--text-secondary);
+    cursor: help;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.infoIcon:hover {
+    opacity: 1;
+}
+
+.tooltipContainer {
+    display: flex;
+    align-items: center;
+}
+
+.fillBullish {
+    background-color: var(--signal-bullish);
+}
+
+.fillBearish {
+    background-color: var(--signal-bearish);
+}
+
+.fillNeutral {
+    background-color: var(--signal-neutral);
+}

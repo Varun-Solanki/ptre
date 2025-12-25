@@ -1,0 +1,105 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.controlsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-lg);
+}
+
+.lastUpdated {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.chartSection {
+    min-height: 400px;
+    height: 100%;
+}
+
+.cardsSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.modelsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+@media (max-width: 480px) {
+    .modelsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* NEW: Bottom Row for Indicators and Risk */
+.bottomRow {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* Match the top grid proportions or use 1fr 1fr? User wanted Left of Volatility. Let's use 1fr 1fr for balance or 2fr 1fr to align with chart? Let's try 1.5fr 1fr or just auto fit */
+    /* Let's actually make it 3fr 2fr or simply 1fr 1fr if components are equal importance */
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .bottomRow {
+        grid-template-columns: 1fr;
+    }
+}
+
+.loadingState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    color: var(--text-secondary);
+    gap: var(--spacing-md);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--signal-bullish);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.errorBanner {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--signal-bearish);
+    color: var(--signal-bearish);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
