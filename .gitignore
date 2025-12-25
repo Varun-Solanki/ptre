@@ -1,0 +1,22 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# FastAPI env
+backend/.env
+
+# Node
+frontend/node_modules/
+dist/
+
+# Vite env
+frontend/.env
+frontend/.env.local
+frontend/.env.development
+frontend/.env.production
+
+# IDE
+.vscode/
+.idea/
+.DS_Store

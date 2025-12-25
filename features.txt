@@ -1,0 +1,296 @@
+PTRE — Feature Definitions (Phase 3)
+
+Total Features: 40
+Horizon alignment: 10 trading days
+All features are leakage-safe (shifted by 1 day)
+
+A. RETURN FEATURES (8)
+1. ret_1d
+
+Category: Returns
+Formula:
+(Pₜ − Pₜ₋₁) / Pₜ₋₁
+Purpose: Immediate price direction
+
+2. ret_3d
+
+Category: Returns
+Formula:
+(Pₜ − Pₜ₋₃) / Pₜ₋₃
+Purpose: Short-term trend
+
+3. ret_5d
+
+Category: Returns
+Formula:
+(Pₜ − Pₜ₋₅) / Pₜ₋₅
+Purpose: Medium-short momentum
+
+4. ret_10d
+
+Category: Returns
+Formula:
+(Pₜ − Pₜ₋₁₀) / Pₜ₋₁₀
+Purpose: Horizon-aligned momentum
+
+5. log_ret_1d
+
+Category: Returns
+Formula:
+ln(Pₜ / Pₜ₋₁)
+Purpose: Scale-stable daily return
+
+6. log_ret_5d
+
+Category: Returns
+Formula:
+ln(Pₜ / Pₜ₋₅)
+Purpose: Smoothed return magnitude
+
+7. cum_ret_5d
+
+Category: Returns
+Formula:
+∏(1 + ret_1d) − 1 over 5 days
+Purpose: Compounded short-term return
+
+8. cum_ret_10d
+
+Category: Returns
+Formula:
+∏(1 + ret_1d) − 1 over 10 days
+Purpose: Compounded horizon return
+
+B. VOLATILITY FEATURES (7)
+9. vol_5d
+
+Category: Volatility
+Formula:
+Std(ret_1d) over 5 days
+Purpose: Short-term risk
+
+10. vol_10d
+
+Category: Volatility
+Formula:
+Std(ret_1d) over 10 days
+Purpose: Risk normalization base
+
+11. vol_20d
+
+Category: Volatility
+Formula:
+Std(ret_1d) over 20 days
+Purpose: Medium-term risk regime
+
+12. vol_ratio_5_20
+
+Category: Volatility
+Formula:
+vol_5d / vol_20d
+Purpose: Volatility expansion or contraction
+
+13. vol_ratio_10_20
+
+Category: Volatility
+Formula:
+vol_10d / vol_20d
+Purpose: Risk regime comparison
+
+14. hl_vol_5d
+
+Category: Volatility
+Formula:
+Mean((High − Low) / Close) over 5 days
+Purpose: Intraday range volatility
+
+15. hl_vol_10d
+
+Category: Volatility
+Formula:
+Mean((High − Low) / Close) over 10 days
+Purpose: Short-term price dispersion
+
+C. MOMENTUM FEATURES (8)
+16. rsi_14
+
+Category: Momentum
+Formula:
+RSI over 14 periods
+Purpose: Overbought / oversold signal
+
+17. rsi_divergence
+
+Category: Momentum (Engineered)
+Formula:
+Z(price return 14d) − Z(RSI change 14d)
+Purpose: Detect hidden momentum shifts
+
+18. dmi_spread
+
+Category: Momentum / Direction
+Formula:
+(+DI − −DI) / (+DI + −DI)
+Purpose: Directional dominance
+
+19. roc_5d
+
+Category: Momentum
+Formula:
+(Pₜ − Pₜ₋₅) / Pₜ₋₅
+Purpose: Acceleration signal
+
+20. roc_10d
+
+Category: Momentum
+Formula:
+(Pₜ − Pₜ₋₁₀) / Pₜ₋₁₀
+Purpose: Horizon-aligned ROC
+
+21. mom_slope_5d
+
+Category: Momentum
+Formula:
+Mean(ret_1d) over 5 days
+Purpose: Short-term trend strength
+
+22. mom_slope_10d
+
+Category: Momentum
+Formula:
+Mean(ret_1d) over 10 days
+Purpose: Medium-term trend strength
+
+D. TREND CONTEXT FEATURES (7)
+23. dist_sma_20
+
+Category: Trend Context
+Formula:
+(Pₜ − SMA₂₀) / SMA₂₀
+Purpose: Position relative to trend
+
+24. dist_sma_50
+
+Category: Trend Context
+Formula:
+(Pₜ − SMA₅₀) / SMA₅₀
+Purpose: Long-term trend bias
+
+25. trend_alignment
+
+Category: Trend Context (Engineered)
+Formula:
+(SMA5>SMA10)+(SMA10>SMA20)+(SMA20>SMA50)+(P>SMA50), normalized
+Purpose: Multi-timeframe trend agreement
+
+26. dist_ema_20
+
+Category: Trend Context
+Formula:
+(Pₜ − EMA₂₀) / EMA₂₀
+Purpose: Adaptive trend distance
+
+27. dist_ema_50
+
+Category: Trend Context
+Formula:
+(Pₜ − EMA₅₀) / EMA₅₀
+Purpose: Medium-term adaptive trend
+
+28. price_range_pos_20
+
+Category: Trend Context
+Formula:
+(Pₜ − Low₂₀) / (High₂₀ − Low₂₀)
+Purpose: Position inside recent range
+
+E. VOLUME FEATURES (6)
+29. volume_zscore
+
+Category: Volume
+Formula:
+(Volume − Mean₂₀) / Std₂₀
+Purpose: Abnormal volume detection
+
+30. volume_change_1d
+
+Category: Volume
+Formula:
+(Vₜ − Vₜ₋₁) / Vₜ₋₁
+Purpose: Sudden volume change
+
+31. volume_change_5d
+
+Category: Volume
+Formula:
+(Vₜ − Vₜ₋₅) / Vₜ₋₅
+Purpose: Medium-term volume trend
+
+32. volume_price_corr_10d
+
+Category: Volume
+Formula:
+Corr(Volume, Price) over 10 days
+Purpose: Volume-price confirmation
+
+33. vol_weighted_momentum
+
+Category: Volume (Engineered)
+Formula:
+Σ(Return × Volume) / Σ(Volume) over 20 days
+Purpose: High-conviction momentum
+
+34. ad_momentum_14d
+
+Category: Volume (Engineered)
+Formula:
+ROC of Accumulation/Distribution line
+Purpose: Institutional pressure signal
+
+35. volume_surprise
+
+Category: Volume
+Formula:
+Volume / EMA₂₀(Volume)
+Purpose: Unusual participation detection
+
+F. VOLATILITY ESTIMATORS (3)
+36. parkinson_vol
+
+Category: Volatility
+Formula:
+√[(1 / 4ln2) × (ln(H/L))²]
+Purpose: Efficient range-based volatility
+
+37. garman_klass_vol
+
+Category: Volatility
+Formula:
+0.5·(ln(H/L))² − (2ln2−1)·(ln(C/O))²
+Purpose: OHLC-based volatility estimator
+
+38. atr_percentile
+
+Category: Volatility / Regime
+Formula:
+Percentile rank of ATR₍₂₀₎
+Purpose: Volatility regime detection
+
+G. ENGINEERED STRUCTURE FEATURES (2)
+39. lr_slope_conf_20
+
+Category: Trend (Engineered)
+Formula:
+Slope(log price regression) × R² over 20 days
+Purpose: Trend direction + reliability
+
+40. obv_divergence
+
+Category: Volume / Trend (Engineered)
+Formula:
+Slope(OBV₁₀) − Slope(Price₁₀)
+Purpose: Volume–price divergence
+
+One-line summary:
+
+PTRE features describe price behavior, volatility, trend structure, and volume conviction across multiple timeframes, aligned to a 10-day decision horizon.

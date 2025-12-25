@@ -1,0 +1,225 @@
+=== SAVING FINAL CALIBRATED MODELS ===
+
+
+===== AAPL =====
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2669
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2669
+Rows before dropna: 2669
+Rows after dropna: 2669
+
+✔ Trend model saved → src\models\trend\AAPL_trend.pkl
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2749
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2671
+Rows before dropna: 2671
+Rows after dropna: 2671
+✔ Momentum model saved → src\models\momentum\AAPL_momentum.pkl
+
+===== MSFT =====
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2669
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2669
+Rows before dropna: 2669
+Rows after dropna: 2669
+✔ Trend model saved → src\models\trend\MSFT_trend.pkl
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2747
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2669
+Rows before dropna: 2669
+Rows after dropna: 2669
+✔ Momentum model saved → src\models\momentum\MSFT_momentum.pkl
+
+===== NVDA =====
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2669
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2669
+Rows before dropna: 2669
+Rows after dropna: 2669
+✔ Trend model saved → src\models\trend\NVDA_trend.pkl
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2748
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2671
+Rows before dropna: 2671
+Rows after dropna: 2671
+✔ Momentum model saved → src\models\momentum\NVDA_momentum.pkl
+
+===== AMZN =====
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2669
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2669
+Rows before dropna: 2669
+Rows after dropna: 2669
+✔ Trend model saved → src\models\trend\AMZN_trend.pkl
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2749
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2671
+Rows before dropna: 2671
+Rows after dropna: 2671
+✔ Momentum model saved → src\models\momentum\AMZN_momentum.pkl
+
+===== META =====
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2669
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2669
+Rows before dropna: 2669
+Rows after dropna: 2669
+✔ Trend model saved → src\models\trend\META_trend.pkl
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2749
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2671
+Rows before dropna: 2671
+Rows after dropna: 2671
+✔ Momentum model saved → src\models\momentum\META_momentum.pkl
+
+===== GOOGL =====
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2669
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2669
+Rows before dropna: 2669
+Rows after dropna: 2669
+✔ Trend model saved → src\models\trend\GOOGL_trend.pkl
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2748
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2670
+Rows before dropna: 2670
+Rows after dropna: 2670
+✔ Momentum model saved → src\models\momentum\GOOGL_momentum.pkl
+
+===== TSLA =====
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2669
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2669
+Rows before dropna: 2669
+Rows after dropna: 2669
+✔ Trend model saved → src\models\trend\TSLA_trend.pkl
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2750
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2672
+Rows before dropna: 2672
+Rows after dropna: 2672
+✔ Momentum model saved → src\models\momentum\TSLA_momentum.pkl
+
+===== JPM =====
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2669
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2669
+Rows before dropna: 2669
+Rows after dropna: 2669
+✔ Trend model saved → src\models\trend\JPM_trend.pkl
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2747
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2669
+Rows before dropna: 2669
+Rows after dropna: 2669
+✔ Momentum model saved → src\models\momentum\JPM_momentum.pkl
+
+===== UNH =====
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2669
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2669
+Rows before dropna: 2669
+Rows after dropna: 2669
+✔ Trend model saved → src\models\trend\UNH_trend.pkl
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2747
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2669
+Rows before dropna: 2669
+Rows after dropna: 2669
+✔ Momentum model saved → src\models\momentum\UNH_momentum.pkl
+
+===== XOM =====
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2669
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2669
+Rows before dropna: 2669
+Rows after dropna: 2669
+✔ Trend model saved → src\models\trend\XOM_trend.pkl
+
+[DEBUG] Loaded:
+Features rows: 2679
+Labels rows: 2748
+Feature index dtype: object
+Label index dtype: object
+Common index rows: 2670
+Rows before dropna: 2670
+Rows after dropna: 2670
+✔ Momentum model saved → src\models\momentum\XOM_momentum.pkl       
+
+=== ALL MODELS SAVED SUCCESSFULLY ===

@@ -1,0 +1,232 @@
+=== TRAINING MOMENTUM MODEL (7-day horizon) ===
+
+
+===== AAPL =====
+AAPL raw feature rows: 2677
+AAPL raw label rows: 2749
+AAPL common index rows: 2671
+AAPL rows before dropna: 2671
+AAPL rows after dropna: 2671
+
+Confusion Matrix:
+[[ 98 238]
+ [138 328]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        -1.0      0.415     0.292     0.343       336
+         1.0      0.580     0.704     0.636       466
+
+    accuracy                          0.531       802
+   macro avg      0.497     0.498     0.489       802
+weighted avg      0.511     0.531     0.513       802
+
+Predicted +1 rate: 70.57%
+
+===== MSFT =====
+MSFT raw feature rows: 2677
+MSFT raw label rows: 2747
+MSFT common index rows: 2669
+MSFT rows before dropna: 2669
+MSFT rows after dropna: 2669
+
+Confusion Matrix:
+[[ 80 256]
+ [151 314]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        -1.0      0.346     0.238     0.282       336
+         1.0      0.551     0.675     0.607       465
+
+    accuracy                          0.492       801
+   macro avg      0.449     0.457     0.444       801
+weighted avg      0.465     0.492     0.471       801
+
+Predicted +1 rate: 71.16%
+
+===== NVDA =====
+NVDA raw feature rows: 2677
+NVDA raw label rows: 2748
+NVDA common index rows: 2671
+NVDA rows before dropna: 2671
+NVDA rows after dropna: 2671
+
+Confusion Matrix:
+[[ 84 206]
+ [167 345]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        -1.0      0.335     0.290     0.311       290
+         1.0      0.626     0.674     0.649       512
+
+    accuracy                          0.535       802
+   macro avg      0.480     0.482     0.480       802
+weighted avg      0.521     0.535     0.527       802
+
+Predicted +1 rate: 68.70%
+
+===== AMZN =====
+AMZN raw feature rows: 2677
+AMZN raw label rows: 2749
+AMZN common index rows: 2671
+AMZN rows before dropna: 2671
+AMZN rows after dropna: 2671
+
+Confusion Matrix:
+[[118 219]
+ [170 295]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        -1.0      0.410     0.350     0.378       337
+         1.0      0.574     0.634     0.603       465
+
+    accuracy                          0.515       802
+   macro avg      0.492     0.492     0.490       802
+weighted avg      0.505     0.515     0.508       802
+
+Predicted +1 rate: 64.09%
+
+===== META =====
+META raw feature rows: 2677
+META raw label rows: 2749
+META common index rows: 2671
+META rows before dropna: 2671
+META rows after dropna: 2671
+
+Confusion Matrix:
+[[ 96 221]
+ [141 344]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        -1.0      0.405     0.303     0.347       317
+         1.0      0.609     0.709     0.655       485
+
+    accuracy                          0.549       802
+   macro avg      0.507     0.506     0.501       802
+weighted avg      0.528     0.549     0.533       802
+
+Predicted +1 rate: 70.45%
+
+===== GOOGL =====
+GOOGL raw feature rows: 2677
+GOOGL raw label rows: 2748
+GOOGL common index rows: 2670
+GOOGL rows before dropna: 2670
+GOOGL rows after dropna: 2670
+
+Confusion Matrix:
+[[ 93 217]
+ [174 318]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        -1.0      0.348     0.300     0.322       310
+         1.0      0.594     0.646     0.619       492
+
+    accuracy                          0.512       802
+   macro avg      0.471     0.473     0.471       802
+weighted avg      0.499     0.512     0.505       802
+
+Predicted +1 rate: 66.71%
+
+===== TSLA =====
+TSLA raw feature rows: 2677
+TSLA raw label rows: 2750
+TSLA common index rows: 2672
+TSLA rows before dropna: 2672
+TSLA rows after dropna: 2672
+
+Confusion Matrix:
+[[172 212]
+ [182 236]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        -1.0      0.486     0.448     0.466       384
+         1.0      0.527     0.565     0.545       418
+
+    accuracy                          0.509       802
+   macro avg      0.506     0.506     0.506       802
+weighted avg      0.507     0.509     0.507       802
+
+Predicted +1 rate: 55.86%
+
+===== JPM =====
+JPM raw feature rows: 2677
+JPM raw label rows: 2747
+JPM common index rows: 2669
+JPM rows before dropna: 2669
+JPM rows after dropna: 2669
+
+Confusion Matrix:
+[[110 184]
+ [180 327]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        -1.0      0.379     0.374     0.377       294
+         1.0      0.640     0.645     0.642       507
+
+    accuracy                          0.546       801
+   macro avg      0.510     0.510     0.510       801
+weighted avg      0.544     0.546     0.545       801
+
+Predicted +1 rate: 63.80%
+
+===== UNH =====
+UNH raw feature rows: 2677
+UNH raw label rows: 2747
+UNH common index rows: 2669
+UNH rows before dropna: 2669
+UNH rows after dropna: 2669
+
+Confusion Matrix:
+[[ 77 297]
+ [ 94 333]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        -1.0      0.450     0.206     0.283       374
+         1.0      0.529     0.780     0.630       427
+
+    accuracy                          0.512       801
+   macro avg      0.489     0.493     0.456       801
+weighted avg      0.492     0.512     0.468       801
+
+Predicted +1 rate: 78.65%
+
+===== XOM =====
+XOM raw feature rows: 2677
+XOM raw label rows: 2748
+XOM common index rows: 2670
+XOM rows before dropna: 2670
+XOM rows after dropna: 2670
+
+Confusion Matrix:
+[[170 193]
+ [194 245]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        -1.0      0.467     0.468     0.468       363
+         1.0      0.559     0.558     0.559       439
+
+    accuracy                          0.517       802
+   macro avg      0.513     0.513     0.513       802
+weighted avg      0.518     0.517     0.518       802
+
+Predicted +1 rate: 54.61%

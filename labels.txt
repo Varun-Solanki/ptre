@@ -1,0 +1,111 @@
+PTRE — Label Definition (Phase 4)
+What the labels represent
+
+In PTRE, labels represent the future directional trend, not price prediction.
+
+They answer the question:
+
+Given today’s market structure, what was the risk-adjusted directional outcome over the next 10 trading days?
+
+The labels are defined using two formulas working together.
+
+Formula 1 — Future Return (Direction)
+
+Future 10-day return:
+
+r(t,10) = ( P(t+10) − P(t) ) / P(t)
+
+Where:
+
+P(t) = price at time t
+
+P(t+10) = price 10 trading days in the future
+
+This formula answers:
+
+Did the price actually move up or down over the next 10 trading days?
+
+This captures direction, but not whether the move was meaningful.
+
+Formula 2 — Risk Normalization (Context)
+
+Risk-adjusted return:
+
+z(t) = r(t,10) / σ(t)
+
+Where:
+
+σ(t) = vol_10d at time t (historical volatility)
+
+This formula answers:
+
+Was that move significant relative to risk, or just noise?
+
+Risk normalization ensures:
+
+High-volatility stocks are not over-rewarded
+
+Low-volatility stocks are not unfairly penalized
+
+Trends are comparable across stocks and regimes
+
+Final Label Logic
+
+Labels are assigned using symmetric thresholds on the risk-adjusted return.
+
+Condition → Label → Meaning
+
+z(t) ≥ +0.75 → +1 (Bullish)
+Strong upside trend relative to risk
+
+z(t) ≤ −0.75 → −1 (Bearish)
+Strong downside trend relative to risk
+
+otherwise → 0 (Neutral)
+Noise, chop, or insignificant movement
+
+What the labels are (important)
+
+Labels are future-looking
+
+Labels encode direction + confidence
+
+Labels are volatility-aware
+
+Labels are classification targets
+
+In short:
+
+Labels = future trend classification
+
+What the labels are NOT
+
+The model is not learning:
+
+“Predict the price”
+
+“Predict the exact % return”
+
+Those problems are unstable and unrealistic in financial markets.
+
+What the model actually learns
+
+The model learns:
+
+“Given today’s features (market structure), what is the probability of each future trend state:
+Bullish, Neutral, or Bearish?”
+
+This makes PTRE:
+
+More robust
+
+More interpretable
+
+Defensible in real-world use
+
+Suitable for risk-aware decision making
+
+One-line mental model
+
+Features describe today’s market structure.
+Labels describe tomorrow’s risk-adjusted trend.

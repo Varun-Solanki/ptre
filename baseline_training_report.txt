@@ -1,0 +1,196 @@
+===== AAPL =====
+Confusion Matrix:
+[[ 99   3 154]
+ [ 65  11  62]
+ [156  18 233]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+          -1      0.309     0.387     0.344       256
+           0      0.344     0.080     0.129       138
+           1      0.519     0.572     0.544       407
+
+    accuracy                          0.428       801
+   macro avg      0.391     0.346     0.339       801
+weighted avg      0.422     0.428     0.409       801
+
+
+===== MSFT =====
+Data shape after alignment: (2669, 41)
+
+Confusion Matrix:
+[[129  20 112]
+ [ 67  13  81]
+ [139  24 216]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+          -1      0.385     0.494     0.433       261
+           0      0.228     0.081     0.119       161
+           1      0.528     0.570     0.548       379
+
+    accuracy                          0.447       801
+   macro avg      0.380     0.382     0.367       801
+weighted avg      0.421     0.447     0.424       801
+
+
+===== NVDA =====
+Data shape after alignment: (2669, 41)
+
+Confusion Matrix:
+[[186   2  28]
+ [ 98  13  28]
+ [309  17 120]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+          -1      0.314     0.861     0.460       216
+           0      0.406     0.094     0.152       139
+           1      0.682     0.269     0.386       446
+
+    accuracy                          0.398       801
+   macro avg      0.467     0.408     0.333       801
+weighted avg      0.535     0.398     0.365       801
+
+
+===== AMZN =====
+Data shape after alignment: (2669, 41)
+
+Confusion Matrix:
+[[126  34  96]
+ [ 61  31  57]
+ [174  35 187]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+          -1      0.349     0.492     0.408       256
+           0      0.310     0.208     0.249       149
+           1      0.550     0.472     0.508       396
+
+    accuracy                          0.429       801
+   macro avg      0.403     0.391     0.389       801
+weighted avg      0.441     0.429     0.428       801
+
+
+===== META =====
+Data shape after alignment: (2669, 41)
+
+Confusion Matrix:
+[[114  24  93]
+ [ 61  20  52]
+ [191  49 197]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+          -1      0.311     0.494     0.382       231
+           0      0.215     0.150     0.177       133
+           1      0.576     0.451     0.506       437
+
+    accuracy                          0.413       801
+   macro avg      0.368     0.365     0.355       801
+weighted avg      0.440     0.413     0.415       801
+
+
+===== GOOGL =====
+Data shape after alignment: (2669, 41)
+
+Confusion Matrix:
+[[151  15  64]
+ [ 86  24  45]
+ [266  44 106]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+          -1      0.300     0.657     0.412       230
+           0      0.289     0.155     0.202       155
+           1      0.493     0.255     0.336       416
+
+    accuracy                          0.351       801
+   macro avg      0.361     0.355     0.317       801
+weighted avg      0.398     0.351     0.332       801
+
+
+===== TSLA =====
+Data shape after alignment: (2669, 41)
+
+Confusion Matrix:
+[[138   8 168]
+ [ 68  11  50]
+ [147  25 186]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+          -1      0.391     0.439     0.414       314
+           0      0.250     0.085     0.127       129
+           1      0.460     0.520     0.488       358
+
+    accuracy                          0.418       801
+   macro avg      0.367     0.348     0.343       801
+weighted avg      0.399     0.418     0.401       801
+
+
+===== JPM =====
+Data shape after alignment: (2669, 41)
+
+Confusion Matrix:
+[[149  16  57]
+ [ 56  17  48]
+ [270  56 132]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+          -1      0.314     0.671     0.428       222
+           0      0.191     0.140     0.162       121
+           1      0.557     0.288     0.380       458
+
+    accuracy                          0.372       801
+   macro avg      0.354     0.367     0.323       801
+weighted avg      0.434     0.372     0.360       801
+
+
+===== UNH =====
+Data shape after alignment: (2669, 41)
+
+Confusion Matrix:
+[[ 55  20 238]
+ [ 22  12 113]
+ [ 42  19 280]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+          -1      0.462     0.176     0.255       313
+           0      0.235     0.082     0.121       147
+           1      0.444     0.821     0.576       341
+
+    accuracy                          0.433       801
+   macro avg      0.380     0.359     0.317       801
+weighted avg      0.413     0.433     0.367       801
+
+
+===== XOM =====
+Data shape after alignment: (2669, 41)
+
+Confusion Matrix:
+[[126  28 125]
+ [ 59  25  71]
+ [171  36 160]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+          -1      0.354     0.452     0.397       279
+           0      0.281     0.161     0.205       155
+           1      0.449     0.436     0.443       367
+
+    accuracy                          0.388       801
+   macro avg      0.361     0.350     0.348       801
+weighted avg      0.384     0.388     0.381       801
