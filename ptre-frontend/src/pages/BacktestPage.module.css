@@ -1,0 +1,206 @@
+.pageContainer {
+    padding: 2rem;
+    color: #F1F5F9;
+}
+
+.header {
+    margin-bottom: 2rem;
+}
+
+.headerTitle {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin-bottom: 0.5rem;
+}
+
+.headerSubtitle {
+    color: #94A3B8;
+    font-size: 1rem;
+}
+
+.controlsParams {
+    background-color: #1E293B;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.inputLabel {
+    color: #94A3B8;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.dateInput {
+    background-color: #0F172A;
+    border: 1px solid #334155;
+    color: #F1F5F9;
+    padding: 0.625rem 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.dateInput:focus {
+    border-color: #3B82F6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.runButton {
+    background: linear-gradient(135deg, #3B82F6, #2563EB);
+    color: white;
+    border: none;
+    padding: 0.625rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    height: 42px;
+    /* Match input height roughly */
+}
+
+.runButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.runButton:active {
+    transform: translateY(0);
+}
+
+.errorBanner {
+    background-color: #450A0A;
+    border: 1px solid #991B1B;
+    color: #FECACA;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.loadingState {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 4rem;
+    color: #94A3B8;
+    font-size: 1.1rem;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid #334155;
+    border-top-color: #3B82F6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.metricCard {
+    background-color: #1E293B;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #334155;
+}
+
+.metricLabel {
+    color: #94A3B8;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.metricValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #F8FAFC;
+}
+
+.positive {
+    color: #10B981;
+}
+
+.negative {
+    color: #EF4444;
+}
+
+.equitySection {
+    margin-bottom: 2rem;
+    height: 400px;
+    /* specific height for chart */
+}
+
+.explanationSection {
+    background-color: #1E293B;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #334155;
+}
+
+.explanationTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #F8FAFC;
+    margin-bottom: 1rem;
+}
+
+.explanationGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.explanationItem h4 {
+    color: #3B82F6;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.explanationItem p {
+    color: #94A3B8;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+.codeBlock {
+    background-color: #0F172A;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 0.75rem;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: #E2E8F0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}

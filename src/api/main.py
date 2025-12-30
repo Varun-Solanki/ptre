@@ -23,6 +23,7 @@ from src.api.routes import router
 # -----------------------------
 # Create FastAPI app (CRITICAL)
 # -----------------------------
+# Reload trigger
 app = FastAPI(
     title="PTRE Signal Engine",
     version="1.0",
@@ -49,5 +50,8 @@ app.add_middleware(
 # API Routes
 # -----------------------------
 app.include_router(router)
+from src.api.backtest_routes import router as backtest_router
+app.include_router(backtest_router)
+
 
 

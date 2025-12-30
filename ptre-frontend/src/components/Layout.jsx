@@ -30,6 +30,12 @@ const Layout = () => {
                             Dashboard
                         </Link>
                         <Link
+                            to="/backtest"
+                            className={clsx(styles.navLink, location.pathname === '/backtest' && styles.activeLink)}
+                        >
+                            Backtest
+                        </Link>
+                        <Link
                             to="/features"
                             className={clsx(styles.navLink, location.pathname === '/features' && styles.activeLink)}
                         >
