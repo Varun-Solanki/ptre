@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './SystemPage.module.css';
 
 const SystemPage = () => {
@@ -63,7 +64,7 @@ const SystemPage = () => {
                     This overrides bullish/bearish signals into a forced Neutral state.
                 </p>
                 <div className={styles.formula}>
-                     If Volatility > Regime_Threshold AND Momentum &lt; Conviction_Floor <br />
+                    If Volatility &gt; Regime_Threshold AND Momentum &lt; Conviction_Floor <br />
                     THEN Signal = Neutral (0)
                 </div>
                 <p>
@@ -77,7 +78,7 @@ const SystemPage = () => {
                 <h2>05. Risk-Adjusted Labels</h2>
                 <p>
                     The models are trained not on raw price changes, but on <strong>future risk-adjusted returns</strong> (forward Sharpe ratio).
-                    See the <a href="/labels" className={styles.link}>Labels Page</a> for the exact formulas.
+                    See the <Link to="/labels" className={styles.link}>Labels Page</Link> for the exact formulas.
                 </p>
             </section>
         </div>

@@ -40,14 +40,14 @@ def generate_signal(ticker: str):
         "trend": {
             "direction": "Bullish"
             if result["components"]["trend"]["direction"] == 1
-            else "Bearish",
+            else ("Bearish" if result["components"]["trend"]["direction"] == -1 else "Neutral"),
             "confidence": result["components"]["trend"]["confidence"]
         },
 
         "momentum": {
             "direction": "Bullish"
             if result["components"]["momentum"]["direction"] == 1
-            else "Bearish",
+            else ("Bearish" if result["components"]["momentum"]["direction"] == -1 else "Neutral"),
             "confidence": result["components"]["momentum"]["confidence"],
             "horizon_days": 7
         },
