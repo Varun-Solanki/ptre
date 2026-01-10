@@ -25,124 +25,70 @@ It answers three critical questions for any asset:
 ## Key Features
 
 ### Dual-Model Architecture
-*   **Trend Model**: Using **Histogram-Based Gradient Boosting**, this model analyzes ~40 non-linear features (price action, gaps, volatility estimators) to determine the macro direction.
-*   **Momentum Model**: A fast-twitch verification layer focusing on 11 velocity and volume-based features to confirm or reject the trend.
+* **Trend Model**: Uses **Histogram-Based Gradient Boosting** to learn non-linear relationships across ~40 engineered features.
+* **Momentum Model**: A fast-reacting verification layer using 11 velocity and volume-based indicators.
 
 ### Risk-First Design
-*   **Ensemble Soft-Gating**: Signals require agreement. If models disagree (e.g., Bullish Trend vs Bearish Momentum), the system applies a **Confidence Penalty** and flags the signal as "Conflict".
-*   **Neutral Zone Risk Map**: Automatically detects high-volatility "chop" zones where directional signals are unreliable.
+* **Ensemble Soft-Gating**: Signals require agreement. Conflicts apply confidence penalties.
+* **Neutral Zone Detection**: Automatically identifies high-volatility chop where signals are unreliable.
 
 ### Institutional UI
-*   **Dynamic Time-frame Filtering**: Client-side analysis of 1M, 3M, 6M, and 1Y data windows.
-*   **Explainability Engine**: A dedicated panel that translates complex model probabilities into plain English (e.g., *"Trend confirms Bullish, but Volatility is High"*).
-*   **Real-time Indicators**: Live calculation of RSI, SMA, EMA, MACD, and ATR.
+* Dynamic multi-timeframe filtering  
+* Explainability engine (human-readable ML outputs)  
+* Live RSI, SMA, EMA, MACD, ATR  
 
 ### Strategy Backtester
-*   **Historical Simulation**: Run the PTRE strategy against historical data.
-*   **Performance Metrics**: Real-time calculation of CAGR, Sharpe Ratio, Max Drawdown, and Total Return.
-*   **Equity Curve Visualization**: Interactive growth charts.
+* Full historical simulation  
+* CAGR, Sharpe, drawdown  
+* Equity curve visualization  
 
 ![Backtest Strategy](assets/screenshots/backtest_page.png)
-
-### Automated Daily Pipeline
-*   **Daily Learning**: The system includes a robust pipeline to fetch new market data and retrain models every night.
-*   **Fresh Predictions**: Signals are generated on-demand using the absolute latest trained models and live market data.
 
 ---
 
 ## Technology Stack
 
-### Frontend
-*   **React** (Vite)
-*   **CSS Modules** (Dark Theme Design System)
-*   **Recharts** (Responsive Visualization)
-*   **Lucide React** (Iconography)
+**Frontend**
+- React (Vite)
+- CSS Modules
+- Recharts
+- Lucide
 
-### Backend
-*   **Python** (FastAPI)
-*   **Pandas & NumPy** (Vectorized Feature Engineering)
-*   **Scikit-Learn** (HistGradientBoostingClassifier, Isotonic Regression)
-*   **Joblib** (Model Persistence)
+**Backend**
+- Python (FastAPI)
+- Pandas / NumPy
+- Scikit-Learn
+- Joblib
 
 ---
 
-## Getting Started
+## How This Project Works
 
-### Prerequisites
-*   Node.js (v16+)
-*   Python (3.9+)
+This repository follows **production-grade ML design**.
 
-### Installation
+GitHub stores:
+- Model code
+- Feature engineering
+- Pipelines
+- API & UI
 
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/yourusername/ptre.git
-    cd ptre
-    ```
+Your machine generates:
+- Raw price data  
+- Processed features  
+- Labels  
+- Trained models  
 
-2.  **Backend Setup**
-    ```bash
-    # Create virtual environment
-    python -m venv venv
-    source venv/bin/activate  # or venv\Scripts\activate on Windows
-    
-    # Install dependencies
-    pip install -r requirements.txt
-    
-    # Run the Signal API
-    uvicorn src.api.main:app --reload
-    ```
+These are **not stored in Git** — they are **reproducible artifacts**.
 
-3.  **Frontend Setup**
-    ```bash
-    cd ptre-frontend
-    npm install
-    npm run dev
-    ```
+---
 
-4.  **Access**
-    Open `http://localhost:5173` in your browser.
+## Reproducing the System From Scratch
 
-### Setting Up Daily Updates (Deployment)
+When someone clones this repository, there will be **no data and no models**.  
+This is intentional.
 
-To ensure the models stay current, you must configure a scheduler (Cron Job) on your deployment server (e.g., Render, AWS, Heroku) to run the pipeline script daily after market close.
+To rebuild everything:
 
-**Command:**
 ```bash
-python -m scripts.daily_pipeline
-```
-
-**Schedule (Example):**
-`0 23 * * 1-5` (Mon-Fri at 11:00 PM)
-
-This script will:
-1.  Download daily close prices for all 10 tickers.
-2.  Update the feature history csv files.
-3.  Retrain and save new `.pkl` models to disk.
-
----
-
-## Model Performance
-*   **Target Accuracy**: >53% Directional Accuracy (Alpha threshold)
-*   **Calibration**: Probabilities are harmonized using Isotonic Regression, ensuring that a "70% Confidence" score historically correlates with a 70% win rate.
-
----
-
-## Important: Git hygiene for this repository
-
-This project intentionally does NOT track:
-- Raw or processed datasets (`data/`)
-- Trained model artifacts (`*.pkl`, `*.joblib`)
-- Environment secrets (`.env`)
-
-These files are generated locally by the pipeline and must never be committed to Git.
-
-When committing code, do NOT use:
-    git add .
-
-Instead, always add files explicitly:
-    git add src scripts ptre-frontend README.md
-
----
-*Private Research Project. Not Financial Advice.*
-
+pip install -r requirements.txt
+python scripts/update_and_train.py
