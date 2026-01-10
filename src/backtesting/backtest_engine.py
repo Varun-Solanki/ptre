@@ -51,11 +51,20 @@ class Backtester:
         df_feat = pd.read_csv(feature_path)
 
         # -------------------------------
-        # HERE IS THE IMPORTANT FIX
+        # FIX: Date handling
         # -------------------------------
-        # your DATE is stored inside the column named "Price"
-        df_feat["Price"] = pd.to_datetime(df_feat["Price"], errors="coerce")
-        df_feat = df_feat.set_index("Price")
+        if "Date" in df_feat.columns:
+            df_feat["Date"] = pd.to_datetime(df_feat["Date"])
+            df_feat = df_feat.set_index("Date")
+        elif "date" in df_feat.columns:
+            df_feat["date"] = pd.to_datetime(df_feat["date"])
+            df_feat = df_feat.set_index("date")
+        else:
+            # Fallback: assume index is already date or try to parse
+            try:
+                df_feat.index = pd.to_datetime(df_feat.index)
+            except:
+                raise ValueError("Feature file has no 'Date' column and index is not datetime.")
 
         # normalize
         df_feat.index = df_feat.index.tz_localize(None)
