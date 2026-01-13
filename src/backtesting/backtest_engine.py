@@ -5,10 +5,10 @@ from datetime import datetime
 import joblib
 
 from src.models.generate_final_signal import (
-    FEATURE_DIR,
     TREND_MODEL_DIR,
     MOM_MODEL_DIR
 )
+from src.features.build_features import build_features
 
 
 class Backtester:
@@ -21,6 +21,7 @@ class Backtester:
         self.cost = cost  # slippage + brokerage
 
         self.data = None
+        self.raw_data = None  # Store raw OHLCV for feature computation
 
         # load models once
         self.trend_model = joblib.load(TREND_MODEL_DIR / f"{ticker}_trend.pkl")
@@ -35,7 +36,22 @@ class Backtester:
         if df.empty:
             raise ValueError("No price data loaded")
 
+        # Store raw data for feature computation
+        self.raw_data = df.copy()
+        
+        # Clean column names for raw data (handle MultiIndex from yfinance)
+        if isinstance(self.raw_data.columns, pd.MultiIndex):
+            self.raw_data.columns = [c[0] for c in self.raw_data.columns]
+        self.raw_data.columns = [str(c).lower().replace(" ", "_") for c in self.raw_data.columns]
+        
+        # Add adj_close if not present
+        if "adj_close" not in self.raw_data.columns:
+            self.raw_data["adj_close"] = self.raw_data["close"]
+
+        # Prepare price data for backtest
         df = df[["Open", "Close"]]
+        if isinstance(df.columns, pd.MultiIndex):
+            df.columns = [c[0] for c in df.columns]
         df["Return"] = df["Close"].pct_change()
 
         df.index = pd.to_datetime(df.index).tz_localize(None)
@@ -43,31 +59,18 @@ class Backtester:
         self.data = df
 
     # ============================
-    # generate historical signals
+    # generate historical signals (ON-THE-FLY FEATURES)
     # ============================
     def generate_signals(self):
-
-        feature_path = FEATURE_DIR / f"{self.ticker}_features.csv"
-        df_feat = pd.read_csv(feature_path)
-
-        # -------------------------------
-        # FIX: Date handling
-        # -------------------------------
-        if "Date" in df_feat.columns:
-            df_feat["Date"] = pd.to_datetime(df_feat["Date"])
-            df_feat = df_feat.set_index("Date")
-        elif "date" in df_feat.columns:
-            df_feat["date"] = pd.to_datetime(df_feat["date"])
-            df_feat = df_feat.set_index("date")
-        else:
-            # Fallback: assume index is already date or try to parse
-            try:
-                df_feat.index = pd.to_datetime(df_feat.index)
-            except:
-                raise ValueError("Feature file has no 'Date' column and index is not datetime.")
-
-        # normalize
-        df_feat.index = df_feat.index.tz_localize(None)
+        
+        # Build features dynamically from downloaded price data
+        df_feat = build_features(self.raw_data, shift=True)
+        
+        # Set index properly
+        df_feat.index = pd.to_datetime(df_feat.index).tz_localize(None)
+        
+        # Drop rows with NaN from rolling windows
+        df_feat = df_feat.dropna()
 
         # -------------------------------
         # align with price data
@@ -81,13 +84,21 @@ class Backtester:
         print(f"Overlap rows : {len(df_feat)}")
 
         if len(df_feat) == 0:
-            raise ValueError("No aligned feature rows even after fix.")
+            raise ValueError("No aligned feature rows after feature computation.")
 
-        X = df_feat
+        # Select only numeric features
+        X = df_feat.select_dtypes(include=[np.number])
+        
+        # Enforce training feature schema (models expect specific columns)
+        trend_features = list(self.trend_model.feature_names_in_)
+        mom_features = list(self.mom_model.feature_names_in_)
+        
+        X_trend = X[trend_features]
+        X_mom = X[mom_features]
 
         # ---- model inference ----
-        trend_probs = self.trend_model.predict_proba(X)
-        mom_probs = self.mom_model.predict_proba(X)
+        trend_probs = self.trend_model.predict_proba(X_trend)
+        mom_probs = self.mom_model.predict_proba(X_mom)
 
         trend_dir = self.trend_model.classes_[trend_probs.argmax(axis=1)]
         mom_dir = self.mom_model.classes_[mom_probs.argmax(axis=1)]

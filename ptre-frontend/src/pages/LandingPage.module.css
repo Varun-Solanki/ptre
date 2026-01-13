@@ -40,6 +40,7 @@
     font-size: 4rem;
     letter-spacing: -0.02em;
     background: linear-gradient(135deg, #E5E7EB 0%, #9CA3AF 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: -1rem;
