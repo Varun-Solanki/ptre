@@ -223,3 +223,46 @@ Rows after dropna: 2670
 ✔ Momentum model saved → src\models\momentum\XOM_momentum.pkl       
 
 === ALL MODELS SAVED SUCCESSFULLY ===
+
+name: <name of workflow>
+
+on:
+    push:
+
+jobs: 
+    <any_name>:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: <some_name>
+              run: echo "Hello from server"
+
+
+compose
+services:
+
+  <any_name>:
+    image: ayush_node
+    ports:
+      - "6379:8000"
+
+  <any_other_name>:
+    image: node
+    ports:
+      - "8000:8000"
+
+
+- name: Install Nginx
+  hosts: localhost
+  become: yes
+    tasks:
+      - name: Install nginx
+        apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+      - name: Start nginx
+        service:
+        name: nginx
+        state: started
